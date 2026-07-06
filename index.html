@@ -30,7 +30,7 @@
     --accent-text: #244a4e;
     --radius: 16px;
     --shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.05);
-    --max: 1080px;
+    --max: 1240px;
   }
 
   * { box-sizing: border-box; }
@@ -57,8 +57,8 @@
   /* ---------- Layout ---------- */
   .layout {
     display: grid;
-    grid-template-columns: 360px 1fr;
-    gap: 52px;
+    grid-template-columns: 480px 1fr;
+    gap: 60px;
     padding: 64px 0 96px;
   }
 
@@ -68,6 +68,7 @@
 
   .photo {
     width: 100%;
+    max-width: 340px;
     aspect-ratio: 1 / 1.1;
     object-fit: cover;
     object-position: center top;
@@ -91,17 +92,16 @@
 
   .socials {
     display: flex;
-    gap: 7px;
-    margin-top: 22px;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
   }
   .social {
-    flex: 1 1 0;
-    min-width: 0;
+    flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 6px;
-    padding: 8px 6px;
+    padding: 8px 13px;
     border: 1px solid var(--line);
     border-radius: 999px;
     background: var(--surface);
@@ -358,7 +358,7 @@
       gap: 36px;
       padding: 44px 0 72px;
     }
-    .sidebar-inner { position: static; max-width: 380px; }
+    .sidebar-inner { position: static; max-width: 500px; }
     .name { font-size: 27px; margin-top: 18px; }
     .projects { grid-template-columns: 1fr; }
   }
@@ -366,8 +366,6 @@
     .wrap { padding: 0 20px; }
     .sidebar-inner { max-width: none; }
     .photo { max-width: 220px; }
-    .socials { flex-wrap: wrap; }
-    .social { flex: 1 1 auto; padding: 8px 12px; }
     .news li { grid-template-columns: 60px 1fr; gap: 12px; }
     .skill-row { grid-template-columns: 1fr; gap: 6px; }
   }
