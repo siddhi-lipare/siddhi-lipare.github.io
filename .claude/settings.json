@@ -52,7 +52,10 @@
       "Bash(python3 -m http.server 8786)",
       "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=800,680 --screenshot=/tmp/t5.png \"http://localhost:8786/\")",
       "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=390,700 --screenshot=/tmp/m5.png \"http://localhost:8786/\")",
-      "Bash(pkill -f \"http.server 8786\")"
+      "Bash(pkill -f \"http.server 8786\")",
+      "Bash(python3 -m http.server 8787)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1000,720 --screenshot=/tmp/cvbeside.png \"http://localhost:8787/\")",
+      "Bash(pkill -f \"http.server 8787\")"
     ]
   }
 }
