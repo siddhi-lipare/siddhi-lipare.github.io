@@ -57,8 +57,8 @@
   /* ---------- Layout ---------- */
   .layout {
     display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 56px;
+    grid-template-columns: 360px 1fr;
+    gap: 52px;
     padding: 64px 0 96px;
   }
 
@@ -91,33 +91,33 @@
 
   .socials {
     display: flex;
-    gap: 8px;
+    gap: 7px;
     margin-top: 22px;
   }
   .social {
     flex: 1 1 0;
     min-width: 0;
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
-    padding: 11px 4px 9px;
+    padding: 8px 6px;
     border: 1px solid var(--line);
-    border-radius: 12px;
+    border-radius: 999px;
     background: var(--surface);
     color: var(--muted);
-    font-size: 11px;
+    font-size: 12.5px;
     font-weight: 500;
-    letter-spacing: .01em;
+    white-space: nowrap;
     transition: all .15s ease;
   }
   .social:hover {
     border-color: var(--accent);
     color: var(--accent);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: var(--shadow);
   }
-  .social svg { width: 19px; height: 19px; fill: currentColor; }
+  .social svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
 
   /* ---------- Main ---------- */
   main { min-width: 0; }
@@ -355,25 +355,19 @@
   @media (max-width: 860px) {
     .layout {
       grid-template-columns: 1fr;
-      gap: 40px;
-      padding: 40px 0 64px;
+      gap: 36px;
+      padding: 44px 0 72px;
     }
-    .sidebar-inner { position: static; }
-    .sidebar {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 22px;
-      align-items: start;
-    }
-    .photo { aspect-ratio: 1 / 1.1; }
-    .name { font-size: 26px; margin-top: 0; }
-    .socials { grid-column: 1 / -1; }
+    .sidebar-inner { position: static; max-width: 380px; }
+    .name { font-size: 27px; margin-top: 18px; }
     .projects { grid-template-columns: 1fr; }
   }
   @media (max-width: 520px) {
     .wrap { padding: 0 20px; }
-    .sidebar { grid-template-columns: 1fr; }
-    .photo { max-width: 200px; }
+    .sidebar-inner { max-width: none; }
+    .photo { max-width: 220px; }
+    .socials { flex-wrap: wrap; }
+    .social { flex: 1 1 auto; padding: 8px 12px; }
     .news li { grid-template-columns: 60px 1fr; gap: 12px; }
     .skill-row { grid-template-columns: 1fr; gap: 6px; }
   }

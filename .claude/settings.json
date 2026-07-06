@@ -28,7 +28,21 @@
       "Bash(pkill -f \"http.server 8778\")",
       "Bash(python3 -m http.server 8779)",
       "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=390,760 --screenshot=/tmp/sidebar_m.png \"http://localhost:8779/\")",
-      "Bash(pkill -f \"http.server 8779\")"
+      "Bash(pkill -f \"http.server 8779\")",
+      "Bash(python3 -m http.server 8780)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1280,640 --screenshot=/tmp/sb2.png \"http://localhost:8780/\")",
+      "Bash(pkill -f \"http.server 8780\")",
+      "Bash(python3 -m http.server 8781)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1280,820 --screenshot=/tmp/sb3.png \"http://localhost:8781/\")",
+      "Bash(pkill -f \"http.server 8781\")",
+      "Bash(python3 -m http.server 8782)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=380,560 --screenshot=/tmp/sb_m2.png \"http://localhost:8782/\")",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=760,560 --screenshot=/tmp/sb_t2.png \"http://localhost:8782/\")",
+      "Bash(pkill -f \"http.server 8782\")",
+      "Bash(python3 -m http.server 8783)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=760,720 --screenshot=/tmp/t3.png \"http://localhost:8783/\")",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=380,720 --screenshot=/tmp/m3.png \"http://localhost:8783/\")",
+      "Bash(pkill -f \"http.server 8783\")"
     ]
   }
 }
