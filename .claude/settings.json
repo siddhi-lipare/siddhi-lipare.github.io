@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m http.server 8772)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1280,2700 --screenshot=/tmp/full2.png http://localhost:8772/)",
+      "Bash(pkill -f \"http.server 8772\")",
+      "Bash(python3 -m http.server 8773)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1280,1000 --screenshot=/tmp/proj_top.png \"http://localhost:8773/#projects\")",
+      "Bash(pkill -f \"http.server 8773\")",
+      "Bash(cp index.html /tmp/proj_end.html)",
+      "Bash(sed -i 's|<div class=\"projects\">|<div class=\"projects at-end\" style=\"max-height:none\">|' /tmp/proj_end.html)",
+      "Bash(cp /tmp/proj_end.html ./_proj_end_preview.html)",
+      "Bash(python3 -m http.server 8774)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1280,2700 --screenshot=/tmp/proj_end.png \"http://localhost:8774/_proj_end_preview.html\")",
+      "Bash(python3 -m http.server 8775)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --window-size=1280,900 --screenshot=/tmp/proj_default.png \"http://localhost:8775/\")",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1280,2800 --screenshot=/tmp/proj_tall.png \"http://localhost:8775/\")",
+      "Bash(pkill -f \"http.server 8775\")",
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\('/tmp/proj_tall.png'\\); im.crop\\(\\(470,1900,1280,2760\\)\\).save\\('/tmp/proj_crop.png'\\)\")",
+      "Bash(python3 -m http.server 8776)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1280,2850 --screenshot=/tmp/proj_final.png \"http://localhost:8776/\")",
+      "Bash(pkill -f \"http.server 8776\")",
+      "Bash(python3 -m http.server 8777)",
+      "Bash(google-chrome-stable --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1280,2850 --screenshot=/tmp/pf.png \"http://localhost:8777/\")",
+      "Bash(pkill -f \"http.server 8777\")"
+    ]
+  }
+}

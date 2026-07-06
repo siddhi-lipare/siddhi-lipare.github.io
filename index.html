@@ -283,14 +283,24 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-    max-height: 472px;
+    max-height: 612px;
     overflow-y: auto;
     padding: 4px 10px 4px 4px;
     margin: -4px -10px -4px -4px;            /* offset padding so cards stay aligned */
-    -webkit-mask-image: linear-gradient(to bottom, #000 80%, rgba(0,0,0,.12) 100%);
-            mask-image: linear-gradient(to bottom, #000 80%, rgba(0,0,0,.12) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 86%, rgba(0,0,0,.10) 100%);
+            mask-image: linear-gradient(to bottom, #000 86%, rgba(0,0,0,.10) 100%);
     scrollbar-width: thin;
     scrollbar-color: var(--line) transparent;
+  }
+  /* Once scrolled to the bottom, drop the fade so the last cards render fully */
+  .projects.at-end {
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+  /* No overflow (e.g. narrow screens showing all cards) → no fade at all */
+  .projects.no-scroll {
+    -webkit-mask-image: none;
+            mask-image: none;
   }
   .projects::-webkit-scrollbar { width: 8px; }
   .projects::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
@@ -311,6 +321,9 @@
     color: var(--muted);
     padding-left: 22px;
     position: relative;
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
   }
   .honors li::before {
     content: "";
@@ -321,6 +334,14 @@
     background: var(--accent);
   }
   .honors strong { color: var(--text); font-weight: 600; }
+  .hyear {
+    margin-left: auto;
+    font-size: 12.5px;
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    padding-left: 8px;
+  }
 
   /* Skills */
   .skills { display: grid; gap: 12px; }
@@ -434,11 +455,19 @@
         <ul class="news">
           <li>
             <span class="date">2026</span>
+            <span>✈️ Selected for the <strong>CVPR BP Travel Grant</strong> and the <strong>WiCV@CVPR Travel Grant</strong> to attend CVPR 2026.</span>
+          </li>
+          <li>
+            <span class="date">2026</span>
             <span>🎉 Our paper <strong>“RoadTones: Tone Controllable Text Generation from Road Event Videos”</strong> was accepted to the <strong>CVPR 2026 Findings</strong> track!</span>
           </li>
           <li>
+            <span class="date">2026</span>
+            <span>📄 Extended abstract on image tampering detection accepted at the <strong>WiML Workshop, ICML 2026</strong>.</span>
+          </li>
+          <li>
             <span class="date">2025</span>
-            <span>📌 Virtually Presented a poster on image tampering detection at the <strong>CV4Science Workshop, CVPR 2025</strong>.</span>
+            <span>📌 Presented a poster on image tampering detection at the <strong>CV4Science Workshop, CVPR 2025</strong>.</span>
           </li>
         </ul>
       </section>
@@ -482,9 +511,9 @@
           <div class="when">May 2025 – Dec 2025</div>
           <div class="desc">
             <ul>
-              <li>Designed <strong>RoadTones</strong>, a framework for tone-controllable road-video captioning (accepted at CVPR 2026 Findings).</li>
-              <li>Curated <strong>RoadTones-51k dataset</strong> via a scalable data generation pipeline.</li>
-              <li>Built an evaluation stack with new metrics for evaluating factual consistency and tone alignment, benchmarking 10 state-of-the-art Video-Language Models.</li>
+              <li>Designed <strong>RoadTones</strong>, a framework for tone-controllable road-video captioning — accepted at <strong>CVPR 2026 Findings</strong> and presented at the <strong>WiCV@CVPR Workshop</strong>.</li>
+              <li>Curated the <strong>RoadTones-51k dataset</strong> via a scalable data generation pipeline.</li>
+              <li>Built an evaluation stack with new metrics for factual consistency and tone alignment, benchmarking 10 state-of-the-art Video Large Language Models (Video LLMs).</li>
             </ul>
           </div>
         </div>
@@ -525,18 +554,18 @@
         </div>
       </section>
 
-      <!-- Projects -->
+      <!-- Other Projects -->
       <section id="projects">
         <h2 class="eyebrow">Projects</h2>
         <div class="projects">
 
           <article class="card proj">
-            <h3>VLLM Inferencing for Long Videos</h3>
-            <p class="pwhen"><a href="https://cvit.iiit.ac.in/" target="_blank" rel="noopener">CVIT</a>, IIIT Hyderabad · 2026</p>
-            <p>Investigated the VLLM Codebase to ensure zero to minimal quality degradation in video inference.</p>
-            <!-- <div class="pub-links">
-              <a class="chip" href="https://drive.google.com/file/d/1jf4YNha8EieQA4jXeeZOMBqztARpo27_/view" target="_blank" rel="noopener">Report ↗</a>
-            </div> -->
+            <h3>vLLM Inferencing for Road Videos</h3>
+            <p class="pwhen"><a href="https://cvit.iiit.ac.in/" target="_blank" rel="noopener">CVIT</a>, IIIT Hyderabad · 2025–26</p>
+            <p>Investigated and optimized the vLLM inference pipeline for the RoadTones demo, minimizing video-quality degradation while preserving caption-generation performance.</p>
+            <div class="pub-links">
+              <a class="chip" href="https://roadtones.github.io/" target="_blank" rel="noopener">RoadTones ↗</a>
+            </div>
           </article>
 
           <article class="card proj">
@@ -549,9 +578,9 @@
           </article>
 
           <article class="card proj">
-            <h3>Image Tampering Detector</h3>
-            <p class="pwhen">Bachelor's Thesis · <a href="https://tbvl22.github.io/website/home.html" target="_blank" rel="noopener">TBVL</a>, IISER Bhopal · 2025</p>
-            <p>Integrated Discrete Wavelet Transform with a sub-band attention layer over an existing transformer architecture backbone (SAFIRE) for higher accuracy within fewer training epochs.</p>
+            <h3>SegWave: Wavelet-Driven Segmentation of Tampered Regions</h3>
+            <p class="pwhen">BS Thesis · <a href="https://tbvl22.github.io/website/home.html" target="_blank" rel="noopener">TBVL</a>, IISER Bhopal · 2025</p>
+            <p>Paired the Discrete Wavelet Transform with an Adaptive Sub-Band Attention Module to capture frequency–spatial cues for precise localization of tampered regions. Poster at CV4Science@CVPR 2025; extended abstract accepted at WiML@ICML 2026.</p>
             <div class="pub-links">
               <a class="chip" href="https://drive.google.com/file/d/1IAFic-iHEovjZrb-jhaDfMu_mOI98VCv/view?usp=sharing" target="_blank" rel="noopener">Thesis ↗</a>
             </div>
@@ -591,35 +620,36 @@
       <section id="honors">
         <h2 class="eyebrow">Honors &amp; Awards</h2>
         <ul class="honors">
-          <li><strong>ISRO Robotics Challenge 2024</strong> — Top 30 teams out of 400 nationwide.</li>
-          <li><strong>IEEE CAS Student Design Competition 2022</strong> — 3rd place, Asia–Pacific region.</li>
+          <li><strong>CVPR BP &amp; WiCV@CVPR Travel Grants</strong> — selected to receive travel grants to attend CVPR 2026. <span class="hyear">2026</span></li>
+          <li><strong>ISRO Robotics Challenge</strong> — among the Top 30 teams out of 400 nationwide. <span class="hyear">2024</span></li>
+          <li><strong>IEEE CAS Student Design Competition</strong> — 3rd place, Asia–Pacific region; patent filed Oct 2023. <span class="hyear">2022</span></li>
         </ul>
       </section>
 
-      <!-- Skills -->
-      <section id="skills">
-        <h2 class="eyebrow">Technical Skills</h2>
+      <!-- Skills & Hobbies -->
+      <!-- <section id="skills">
+        <h2 class="eyebrow">Skills &amp; Hobbies</h2>
         <div class="skills">
           <div class="skill-row">
             <span class="label">Languages</span>
             <div class="skill-tags">
-              <span>Python</span><span>C/C++</span><span>JavaScript</span><span>MATLAB</span><span>R</span><span>SQL</span>
+              <span>Python</span><span>C/C++</span>
             </div>
           </div>
           <div class="skill-row">
-            <span class="label">Frameworks</span>
+            <span class="label">Technologies</span>
             <div class="skill-tags">
               <span>PyTorch</span><span>TensorFlow</span><span>Keras</span><span>OpenCV</span><span>HuggingFace</span>
             </div>
           </div>
           <div class="skill-row">
-            <span class="label">Tools</span>
+            <span class="label">Hobbies</span>
             <div class="skill-tags">
-              <span>Docker</span><span>Linux</span><span>Git</span><span>Firebase</span><span>LaTeX</span>
+              <span>Dance (Bharatnatyam)</span><span>Performing Arts (Acting)</span><span>Table Tennis</span>
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
     </main>
   </div>
@@ -628,5 +658,23 @@
     © 2026 Siddhi Pravin Lipare · Built with care, hosted on GitHub Pages
   </footer>
 </div>
+
+<script>
+  // Projects grid: keep the bottom fade only while there's more to scroll,
+  // and remove it once the reader reaches the end so the last cards show fully.
+  (function () {
+    var grid = document.querySelector('.projects');
+    if (!grid) return;
+    function update() {
+      var scrollable = grid.scrollHeight - grid.clientHeight > 2;
+      grid.classList.toggle('no-scroll', !scrollable);
+      var atEnd = grid.scrollTop + grid.clientHeight >= grid.scrollHeight - 4;
+      grid.classList.toggle('at-end', atEnd);
+    }
+    grid.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
 </body>
 </html>
